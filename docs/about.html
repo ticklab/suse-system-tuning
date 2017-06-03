@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 关于 &mdash; openSUSE 系统分析和优化指南 0.9 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="#"/>
+    <link rel="top" title="openSUSE 系统分析和优化指南 0.9 文档" href="index.html"/>
+        <link rel="next" title="2. 基础" href="part1.html"/>
+        <link rel="prev" title="openSUSE：系统分析和优化指南" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> openSUSE 系统分析和优化指南
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">1. 关于</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 可用文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2. 问题反馈</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">1.3. 文档规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.4. 手册生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">1.5. 源码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">1.6. 致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part1.html">2. 基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter1.html">2.1. 系统优化常规注意事项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id2">2.1.1. 确定需要解决的问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id3">2.1.2. 排除常规问题干扰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id4">2.1.3. 找到问题根源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id5">2.1.4. 一步一步优化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part2.html">3. 系统监视</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter2.html">3.1. 系统监测工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#id2">3.1.1. 多功能工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#vmstat">3.1.1.1. vmstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#sar-sadc">3.1.1.2. 系统活动信息：sar 和 sadc</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#id4">3.1.2. 系统信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#iostat">3.1.2.1. 设备加载信息：iostat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#mpstat">3.1.2.2. 进程活动监测：mpstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#pidstat">3.1.2.3. 任务监测：pidstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#buffer-dmesg">3.1.2.4. 内核循环Buffer：dmesg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#lsof">3.1.2.5. 打开文件列表：lsof</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#udev-udevadm-monitor">3.1.2.6. 内核和udev事件队列查看：udevadm monitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#audit">3.1.2.7. 安全事件信息：audit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#x11-xrestop">3.1.2.8. X11客户端所用服务器资源：xrestop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#id5">3.1.3. 进程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#ipcs">3.1.3.1. 进程间通讯：ipcs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#ps">3.1.3.2. 进程列表：ps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#pstree">3.1.3.3. 进程树：pstree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#top">3.1.3.4. 进程表：top</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#top-i-o-iotop">3.1.3.5. 类似于 top 的 I/O 监测：iotop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#nice-renice">3.1.3.6. 进程资源微调：nice 和 renice</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#id6">3.1.4. 内存</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#free">3.1.4.1. 内存使用状态：free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#proc-meminfo">3.1.4.2. 详细内存使用状态：/proc/meminfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#smaps">3.1.4.3. 进程内存使用状态：smaps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#id7">3.1.5. 网络</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#netstat">3.1.5.1. 显示网络状态：netstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#iptraf">3.1.5.2. 交互网络监测：iptraf</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#proc">3.1.6. /proc 文件系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#procinfo">3.1.6.1. procinfo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#id8">3.1.7. 硬件信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#pci-lspci">3.1.7.1. PCI 资源：lspci</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#usb-lsusb">3.1.7.2. USB 设备：lsusb</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2.html#id9">3.1.8. 文件和文件系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#file">3.1.8.1. 查看文件类型：file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chapter2.html#mount-df-du">3.1.8.2. 文件系统和用法：mount, df 和 du</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapter3.html">3.2. 分析和管理系统日志文件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part3.html">4. 内核监视</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter4.html">4.1. SystemTap - 过滤和解析系统数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter5.html">4.2. 内核探索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter6.html">4.3. 基于 Perf 的硬件性能监视</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter7.html">4.4. OProfile - 系统级分析工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part4.html">5. 资源管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter8.html">5.1. 常规系统资源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter9.html">5.2. 内核控制组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter10.html">5.3. NUMA 自动均衡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter11.html">5.4. 电源管理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part5.html">6. 内核优化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter12.html">6.1. 优化 I/O 性能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter13.html">6.2. 任务调度优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter14.html">6.3. 内存管理子系统优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter15.html">6.4. 网络优化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part6.html">7. 系统崩溃处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter16.html">7.1. 跟踪工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter17.html">7.2. kexec 和 kdump</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part7.html">8. 基于精确时间协议的时间同步</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter18.html">8.1. 高精度时间协议</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">9. 附录 A：GNU 授权协议</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#gnu">9.1. GNU 通用公共许可协议</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id1">9.1.1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id2">9.1.2. 关于复制、分发和修改的术语和条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id3">9.1.3. 不提供品质担保</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id4">9.1.4. 如何将上述条款应用到你的新程序</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#id5">9.2. GNU 自由文档协议</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id6">9.2.1. 大量复制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id7">9.2.2. 修改</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id8">9.2.3. 合并文档</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id9">9.2.4. 文档合集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id10">9.2.5. 独立著作聚集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id11">9.2.6. 翻译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id12">9.2.7. 终止协议</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id13">9.2.8. 协议将来的修订</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id14">9.2.9. 如何为你的文档使用本协议</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">openSUSE 系统分析和优化指南</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>1. 关于</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/about.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="id1">
+<h1>1. 关于<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>openSUSE Leap 可用于非常广泛的商业或者科技数据中心的应用场景。SUSE可以确保 openSUSE Leap 可以进行设置，以最佳的性能来适应不同的操作目的。然而，OpenSUSE Leap 在部署到大量运行服务器中时需要遇到各种不同的需求，例如文件系统服务器。</p>
+<p>我们不可能发布一个对所有的工作负载进行了优化的版本。不同的工作负载在某些方面差异很大。这些方面包括 I/O 访问模式，内存访问模式，和进程调度。一种完美适配某种确定工作负载的配置可能降低对另一种工作负载的性能。例如，I/O敏感任务，如数据库请求处理，通常与CPU敏感任务，如视频编码，它们需要完全不同的需求。Linux 的通用型让它可以通过对您的系统进行配置在每个应用场景下都可以发挥最好的性能。</p>
+<p>本手册向您介绍管理和分析系统的方法。它将描述这些管理系统资源和优化系统的方法。该指南将不会提供特殊场景下的应用，因为每个服务器都有它独有的需求。相反，它将会使你能够彻底的分析了解您的服务器，并且最大限度的使用它们。</p>
+<ul>
+<li><p class="first">系统优化常规注意事项</p>
+<blockquote>
+<div><p>优化系统需要非常细致的全盘规划和实施。本章主要了解哪些步骤才可以成功的提升系统性能。</p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="part2.html"><em>系统监视</em></a></p>
+<blockquote>
+<div><p>Linux 提供了大量的工具来管理系统的各个方面。本章主要了解如何使用这些工具，以及如何读取和分析系统日志文件。</p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="part3.html"><em>内核监视</em></a></p>
+<blockquote>
+<div><p>Linux 内核本身提供方法来检测各个系统的大小部件。本章主要介绍 SystemTap，一种用于编写内核模块的脚本语言，可用于分析和过滤数据。通过使用内核探针，和 Perf 来收集调试信息和查找问题瓶颈。最后通过 Oprofile 来监视应用程序。</p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="part4.html"><em>资源管理</em></a></p>
+<blockquote>
+<div><p>了解如何设置裁剪系统来满足服务器需要。了解如何使用电源管理，同时确保系统性能等级满足当前需要。</p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="part5.html"><em>内核调优</em></a></p>
+<blockquote>
+<div><p>Linux 内核可以通过 sysctl 或者 <code class="file docutils literal"><span class="pre">/proc</span></code> 文件系统进行优化。本章内容覆盖优化 I/O 性能和调节 Linux 调度进程方法。同时也会描述内存管理的基本理念，以及展示内存管理如何优化才能满足特定应用和使用模式的需要。进一步的，将会讲述如何优化网络性能。</p>
+</div></blockquote>
+</li>
+<li><p class="first"><a class="reference internal" href="part6.html"><em>系统崩溃处理</em></a></p>
+<blockquote>
+<div><p>本章让您能够优化和处理应用或者系统崩溃。将会介绍跟踪工具，例如 strace 或者 Itrace，并且会讲述如何通过 Kexec 和 Kdump 来处理系统崩溃问题。</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p>获取 SUSE Linux 企业 SDK</p>
+<p class="last">该 SDK 是 SUSE Linux 企业版的一个模块，可以通过 SUSE 客户中心的在线频道获取。
+同时，可以访问  <a class="reference external" href="https://doc.opensuse.org/">https://doc.opensuse.org/</a> ，查找 SUSE Linux Enterprise Software Development Kit ，然后进行下载。详细信息参考 <code class="xref doc docutils literal"><span class="pre">入门指南</span></code> 的 <code class="xref doc docutils literal"><span class="pre">第十章：安装附加产品</span></code> 。</p>
+</div>
+<p>本手册中的很多章节都包含其他文档资源链接。这些包括系统中可用的文档和互联网中可用的文档。</p>
+<p>获取您所用产品的可用文档概览，以及最新的文档更新，请查看 <a class="reference external" href="https://doc.opensuse.org/">https://doc.opensuse.org/</a> 或者以下内容：</p>
+<div class="section" id="id2">
+<h2>1.1. 可用文档<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>我们为编写的书籍提供了不同语言的翻译，以及HTML和PDF两种格式。关于 openSUSE 这一系统，我们为用户和系统管理员提供了如下手册：</p>
+<ul>
+<li><p class="first"><code class="xref doc docutils literal"><span class="pre">入门指南</span></code></p>
+<p>引导用户一步一步的使用 openSUSE DVD 或者 ISO 镜像进行系统安装，对 GNOME 和 KDE 桌面环境进行简单的介绍，包括主要程序的运行。同时对 LibreOffice 进行整体的概览，如何使用相关模块进行文档编写，表格处理，图像和演示文档的创建。</p>
+</li>
+<li><p class="first"><code class="xref doc docutils literal"><span class="pre">参考手册</span></code></p>
+<p>对 openSUSE 进行一个整体的概括，包括高级系统管理任务，主要面向系统管理员和对基本系统管理有初步了解的家庭用户。该手册提供了有关高级部署方案，系统管理，关键系统组件交互，以及不同网络设置和 openSUSE 提供的文件服务等方面的详细信息。</p>
+</li>
+<li><p class="first"><code class="xref doc docutils literal"><span class="pre">安全指南</span></code></p>
+<p>对系统安全的基本概念进行介绍，包括本地和网络安全相关内容。展示产品固有安全软件的使用，如 AppArmor （方便用户指定每个程序可以读，写，和执行的文件），或者收集所有安全相关事件的审计系统。</p>
+</li>
+<li><p class="first"><code class="xref doc docutils literal"><span class="pre">系统分析和优化指南</span></code></p>
+<p>本指南是一个问题检测，解析和优化的系统管理员手册。主要内容是关于如何使用检测工具检查，和优化您的系统，以及如何有效的管理资源。同时也涵盖了常用问题，解决办法，以及附加帮助和文档资源的整体概括。</p>
+</li>
+<li><p class="first"><code class="xref doc docutils literal"><span class="pre">KVM</span> <span class="pre">虚拟化</span></code></p>
+<p>本手册提供了 openSUSE 系统上 KVM （基于内核的虚拟机）虚拟化设置和管理的介绍。同时也展示了使用 libvirt 和 QEMU 进行虚拟机客户端管理的方法。</p>
+</li>
+</ul>
+<p>您可以在系统的 <code class="file docutils literal"><span class="pre">/usr/share/doc/manual</span></code> 目录下或者桌面的帮助中心找到多数产品手册的 HTML 格式版本。您可以在 <a class="reference external" href="http://www.suse.com/documentation">http://www.suse.com/documentation</a> 找到最新更新的文档，您可以下载其中的 PDF 或者 HTML 格式的产品手册。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.2. 问题反馈<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>下面是不同的问题反馈方式：</p>
+<ul>
+<li><p class="first"><strong>问题和功能请求</strong></p>
+<p>您可以使用 <a class="reference external" href="https://bugzilla.novell.com/">https://bugzilla.novell.com/</a> 来进行产品组件的问题反馈，和功能请求。对于文档中的问题，请向相应产品的 <em>文档</em> 计划提交反馈。</p>
+<p>如果您对 Bugzilla 不熟悉，可以查看下面的文档：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://en.opensuse.org/openSUSE:Submitting_bug_reports">http://en.opensuse.org/openSUSE:Submitting_bug_reports</a></li>
+<li><a class="reference external" href="http://en.opensuse.org/openSUSE:Bug_reporting_FAQ">http://en.opensuse.org/openSUSE:Bug_reporting_FAQ</a></li>
+</ul>
+</li>
+<li><p class="first"><strong>用户评价</strong></p>
+<p>我们希望听到您对我们的手册和产品中包含的其他文档的评价和建议。请利用在线文档的每个页面底部的用户评论功能，或者打开 <a class="reference external" href="http://www.suse.com/documentation/feedback.html">http://www.suse.com/documentation/feedback.html</a> 然后添加您的评论。</p>
+</li>
+<li><p class="first"><strong>邮件</strong></p>
+<p>您也可以发送邮件到 <cite>doc-team&#64;suse.de</cite> 对产品的文档进行反馈。请确保在邮件中包含文档标题，产品版本，以及文档的发布日期。如果是有关问题反馈和功能方面的建议，请对问题有一个详细的描述，并引用相关的页面（或者 URL）和章节。</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>1.3. 文档规范<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在本手册中将会使用如下的排版样式约定：</p>
+<ul>
+<li><p class="first"><code class="file docutils literal"><span class="pre">/etc/passwd</span></code> ：目录名称和文件名称</p>
+</li>
+<li><p class="first"><code class="samp docutils literal"><span class="pre">占位符</span></code> ：以确定的值替换 <code class="samp docutils literal"><span class="pre">占位符</span></code> 中的内容</p>
+</li>
+<li><p class="first"><span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal"><span class="pre">PATH</span></code> ：环境变量 PATH</p>
+</li>
+<li><p class="first"><strong class="command">ls</strong> , <code class="xref std std-option docutils literal"><span class="pre">--help</span></code> 命令，选项，和参数</p>
+</li>
+<li><p class="first"><em class="dfn">user</em> ：用户或者用户组</p>
+</li>
+<li><p class="first"><code class="kbd docutils literal"><span class="pre">Alt</span></code>，<code class="kbd docutils literal"><span class="pre">Alt-F1</span></code> ：按键或者组合按键，按键使用大写字母表示</p>
+</li>
+<li><p class="first"><span class="menuselection">File</span> ， <span class="menuselection">File ‣ Save As</span> ：菜单，控件</p>
+</li>
+<li><p class="first">跳舞的小企鹅 （<span class="xref std std-ref">章节 企鹅，其他手册</span>）：引用其他手册页中的章节</p>
+</li>
+<li><p class="first">必须以 root 权限执行的指令。通常你需要在这些命令前使用 <strong>sudo</strong> 命令执行：</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p class="first">非特权用户执行的指令。</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p class="first">注意</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p>警告注意</p>
+<p class="last">在实施前必须要注意的至关重要的信息。警告有关安全问题，数据丢失风险，硬件损坏，或者物理危险。</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">重要</p>
+<p>重要注意</p>
+<p class="last">在实施前需要注意的重要信息。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>注解注意</p>
+<p class="last">附加信息，例如软件版本差异信息。</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">小技巧</p>
+<p>提示注意</p>
+<p class="last">帮助信息，例如指南，或者一些实际建议。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>1.4. 手册生成<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>对于本文档，由 Novdoc ，即 DocBook （）的一个子集编写。XML 源文件使用 <strong class="command">xmllint</strong> 校对，并由 <strong class="command">xslproc</strong> 进行处理，最后使用定制的 Norman Walsh 表格样式转换成 XSL-FO。最终的 PDF 格式由 XEP 通过 RenderX 进行渲染。用于构建本手册的开源工具和环境可以使用 openSUSE 提供的 <strong class="command">daps</strong> 包进行安装。该项目的主页位于 <a class="reference external" href="http://daps.sf.net/">http://daps.sf.net/</a> 。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">对于本文档，即本翻译手册，由 reStructuredText 编写，使用 sphinx 和 make 进行管理和生成网页和 PDF 格式文件。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>1.5. 源码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>OpenSUSE 的源代码对公众是开放的，请参考 <a class="reference external" href="http://en.opensuse.org/Source_code">http://en.opensuse.org/Source_code</a> 获取相关下载链接和信息。</p>
+</div>
+<div class="section" id="id7">
+<h2>1.6. 致谢<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>随着众多志愿者的参与，Linux 开发者在全球内的协作极大促进了 Linux 的开发工作。我们非常感谢他们所做的努力和贡献，没有他们，openSUSE 这一发行版将不会存在。在这里，我们非常感谢 Frank Zappa 和 Pawar。当然，我们将最诚挚的感谢给予 Linus Torvalds 。</p>
+<p>祝使用愉快！</p>
+<p>您信赖的 SUSE Team</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="part1.html" class="btn btn-neutral float-right" title="2. 基础" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="openSUSE：系统分析和优化指南" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2015, SUSE LLC  及贡献者.
+      最后更新于 Jun 03, 2017.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

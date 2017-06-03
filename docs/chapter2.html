@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.1. 系统监测工具 &mdash; openSUSE 系统分析和优化指南 0.9 文档</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="关于这些文档"
+              href="about.html"/>
+    <link rel="top" title="openSUSE 系统分析和优化指南 0.9 文档" href="index.html"/>
+        <link rel="up" title="3. 系统监视" href="part2.html"/>
+        <link rel="next" title="3.2. 分析和管理系统日志文件" href="chapter3.html"/>
+        <link rel="prev" title="3. 系统监视" href="part2.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> openSUSE 系统分析和优化指南
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. 关于</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#id2">1.1. 可用文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#id3">1.2. 问题反馈</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#id4">1.3. 文档规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#id5">1.4. 手册生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#id6">1.5. 源码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#id7">1.6. 致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part1.html">2. 基础</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter1.html">2.1. 系统优化常规注意事项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id2">2.1.1. 确定需要解决的问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id3">2.1.2. 排除常规问题干扰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id4">2.1.3. 找到问题根源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1.html#id5">2.1.4. 一步一步优化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="part2.html">3. 系统监视</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">3.1. 系统监测工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1.1. 多功能工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vmstat">3.1.1.1. vmstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sar-sadc">3.1.1.2. 系统活动信息：sar 和 sadc</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.1.2. 系统信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#iostat">3.1.2.1. 设备加载信息：iostat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mpstat">3.1.2.2. 进程活动监测：mpstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pidstat">3.1.2.3. 任务监测：pidstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#buffer-dmesg">3.1.2.4. 内核循环Buffer：dmesg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lsof">3.1.2.5. 打开文件列表：lsof</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#udev-udevadm-monitor">3.1.2.6. 内核和udev事件队列查看：udevadm monitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#audit">3.1.2.7. 安全事件信息：audit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#x11-xrestop">3.1.2.8. X11客户端所用服务器资源：xrestop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.1.3. 进程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ipcs">3.1.3.1. 进程间通讯：ipcs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ps">3.1.3.2. 进程列表：ps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pstree">3.1.3.3. 进程树：pstree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#top">3.1.3.4. 进程表：top</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#top-i-o-iotop">3.1.3.5. 类似于 top 的 I/O 监测：iotop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nice-renice">3.1.3.6. 进程资源微调：nice 和 renice</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.1.4. 内存</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#free">3.1.4.1. 内存使用状态：free</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proc-meminfo">3.1.4.2. 详细内存使用状态：/proc/meminfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smaps">3.1.4.3. 进程内存使用状态：smaps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.1.5. 网络</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#netstat">3.1.5.1. 显示网络状态：netstat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iptraf">3.1.5.2. 交互网络监测：iptraf</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#proc">3.1.6. /proc 文件系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#procinfo">3.1.6.1. procinfo</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">3.1.7. 硬件信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pci-lspci">3.1.7.1. PCI 资源：lspci</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usb-lsusb">3.1.7.2. USB 设备：lsusb</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">3.1.8. 文件和文件系统</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#file">3.1.8.1. 查看文件类型：file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mount-df-du">3.1.8.2. 文件系统和用法：mount, df 和 du</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chapter3.html">3.2. 分析和管理系统日志文件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part3.html">4. 内核监视</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter4.html">4.1. SystemTap - 过滤和解析系统数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter5.html">4.2. 内核探索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter6.html">4.3. 基于 Perf 的硬件性能监视</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter7.html">4.4. OProfile - 系统级分析工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part4.html">5. 资源管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter8.html">5.1. 常规系统资源管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter9.html">5.2. 内核控制组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter10.html">5.3. NUMA 自动均衡</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter11.html">5.4. 电源管理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part5.html">6. 内核优化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter12.html">6.1. 优化 I/O 性能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter13.html">6.2. 任务调度优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter14.html">6.3. 内存管理子系统优化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter15.html">6.4. 网络优化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part6.html">7. 系统崩溃处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter16.html">7.1. 跟踪工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter17.html">7.2. kexec 和 kdump</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="part7.html">8. 基于精确时间协议的时间同步</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chapter18.html">8.1. 高精度时间协议</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">9. 附录 A：GNU 授权协议</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#gnu">9.1. GNU 通用公共许可协议</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id1">9.1.1. 引言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id2">9.1.2. 关于复制、分发和修改的术语和条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id3">9.1.3. 不提供品质担保</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id4">9.1.4. 如何将上述条款应用到你的新程序</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#id5">9.2. GNU 自由文档协议</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id6">9.2.1. 大量复制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id7">9.2.2. 修改</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id8">9.2.3. 合并文档</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id9">9.2.4. 文档合集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id10">9.2.5. 独立著作聚集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id11">9.2.6. 翻译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id12">9.2.7. 终止协议</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id13">9.2.8. 协议将来的修订</a></li>
+<li class="toctree-l3"><a class="reference internal" href="appendix_a.html#id14">9.2.9. 如何为你的文档使用本协议</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">openSUSE 系统分析和优化指南</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="part2.html">3. 系统监视</a> &raquo;</li>
+      
+    <li>3.1. 系统监测工具</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/chapter2.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="id1">
+<h1>3.1. 系统监测工具<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">摘要</p>
+<p>有许多程序，工具可用于检查你的系统状态。本章主要介绍一些此类工具，并且讲述它们最重要，以及经常使用的参数。</p>
+</div>
+<p>对于每个讲解的指令，将会展示相关输出示例。如下示例中，第一行是命令（在 <cite>tux &gt;</cite> 或者 根符号 <cite>#</cite> 之后）。省略内容会使用中括号表示（<cite>[...]</cite>），超长内容有必要的将会换行处理。对于长的行，行中断将会通过斜线表示（<cite>\</cite>）。</p>
+<div class="highlight-shell"><div class="highlight"><pre>tmux &gt; <span class="nb">command</span> -x -y
+output line 1
+output line 2
+output line <span class="m">3</span> is annoyingly long, so long that <span class="se">\</span>
+    we need to <span class="nb">break </span>it
+output line 4
+<span class="o">[</span>...<span class="o">]</span>
+output line 98
+output line 99
+</pre></div>
+</div>
+<p>这些讲解将尽可能的简短，这样我们可以包含尽可能多的工具。更多有关这些指令的详细信息可以查看操作手册页。大多数的指令都可以接受参数 <code class="xref std std-option docutils literal"><span class="pre">--help</span></code> ，它将会打印出可接受参数的简要列表。</p>
+<div class="section" id="id2">
+<h2>3.1.1. 多功能工具<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="vmstat">
+<h3>3.1.1.1. vmstat<a class="headerlink" href="#vmstat" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="sar-sadc">
+<h3>3.1.1.2. 系统活动信息：sar 和 sadc<a class="headerlink" href="#sar-sadc" title="永久链接至标题">¶</a></h3>
+<div class="section" id="sadc">
+<h4>3.1.1.2.1. 使用 sadc 自动整理日常统计信息<a class="headerlink" href="#sadc" title="永久链接至标题">¶</a></h4>
+</div>
+<div class="section" id="sar">
+<h4>3.1.1.2.2. 使用 sar 生成日志报表<a class="headerlink" href="#sar" title="永久链接至标题">¶</a></h4>
+<div class="section" id="cpu-sar">
+<h5>3.1.1.2.2.1. CPU 使用报表：sar<a class="headerlink" href="#cpu-sar" title="永久链接至标题">¶</a></h5>
+</div>
+<div class="section" id="sar-r">
+<h5>3.1.1.2.2.2. 内存使用报表：sar -r<a class="headerlink" href="#sar-r" title="永久链接至标题">¶</a></h5>
+</div>
+<div class="section" id="sar-b">
+<h5>3.1.1.2.2.3. 分页统计报表：sar -B<a class="headerlink" href="#sar-b" title="永久链接至标题">¶</a></h5>
+</div>
+<div class="section" id="sar-d">
+<h5>3.1.1.2.2.4. 块设备统计报表：sar -d<a class="headerlink" href="#sar-d" title="永久链接至标题">¶</a></h5>
+</div>
+<div class="section" id="sar-n-keyword">
+<h5>3.1.1.2.2.5. 网络统计报表：sar -n KEYWORD<a class="headerlink" href="#sar-n-keyword" title="永久链接至标题">¶</a></h5>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>3.1.1.2.3. sar 数据可视化<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>3.1.2. 系统信息<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="iostat">
+<h3>3.1.2.1. 设备加载信息：iostat<a class="headerlink" href="#iostat" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="mpstat">
+<h3>3.1.2.2. 进程活动监测：mpstat<a class="headerlink" href="#mpstat" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="pidstat">
+<h3>3.1.2.3. 任务监测：pidstat<a class="headerlink" href="#pidstat" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="buffer-dmesg">
+<h3>3.1.2.4. 内核循环Buffer：dmesg<a class="headerlink" href="#buffer-dmesg" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="lsof">
+<h3>3.1.2.5. 打开文件列表：lsof<a class="headerlink" href="#lsof" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="udev-udevadm-monitor">
+<h3>3.1.2.6. 内核和udev事件队列查看：udevadm monitor<a class="headerlink" href="#udev-udevadm-monitor" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="audit">
+<h3>3.1.2.7. 安全事件信息：audit<a class="headerlink" href="#audit" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="x11-xrestop">
+<h3>3.1.2.8. X11客户端所用服务器资源：xrestop<a class="headerlink" href="#x11-xrestop" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3.1.3. 进程<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="ipcs">
+<h3>3.1.3.1. 进程间通讯：ipcs<a class="headerlink" href="#ipcs" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="ps">
+<h3>3.1.3.2. 进程列表：ps<a class="headerlink" href="#ps" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="pstree">
+<h3>3.1.3.3. 进程树：pstree<a class="headerlink" href="#pstree" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="top">
+<h3>3.1.3.4. 进程表：top<a class="headerlink" href="#top" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="top-i-o-iotop">
+<h3>3.1.3.5. 类似于 top 的 I/O 监测：iotop<a class="headerlink" href="#top-i-o-iotop" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="nice-renice">
+<h3>3.1.3.6. 进程资源微调：nice 和 renice<a class="headerlink" href="#nice-renice" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>3.1.4. 内存<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="free">
+<h3>3.1.4.1. 内存使用状态：free<a class="headerlink" href="#free" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="proc-meminfo">
+<h3>3.1.4.2. 详细内存使用状态：/proc/meminfo<a class="headerlink" href="#proc-meminfo" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="smaps">
+<h3>3.1.4.3. 进程内存使用状态：smaps<a class="headerlink" href="#smaps" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>3.1.5. 网络<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="netstat">
+<h3>3.1.5.1. 显示网络状态：netstat<a class="headerlink" href="#netstat" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="iptraf">
+<h3>3.1.5.2. 交互网络监测：iptraf<a class="headerlink" href="#iptraf" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="proc">
+<h2>3.1.6. /proc 文件系统<a class="headerlink" href="#proc" title="永久链接至标题">¶</a></h2>
+<div class="section" id="procinfo">
+<h3>3.1.6.1. procinfo<a class="headerlink" href="#procinfo" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>3.1.7. 硬件信息<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="pci-lspci">
+<h3>3.1.7.1. PCI 资源：lspci<a class="headerlink" href="#pci-lspci" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="usb-lsusb">
+<h3>3.1.7.2. USB 设备：lsusb<a class="headerlink" href="#usb-lsusb" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>3.1.8. 文件和文件系统<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="section" id="file">
+<h3>3.1.8.1. 查看文件类型：file<a class="headerlink" href="#file" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="mount-df-du">
+<h3>3.1.8.2. 文件系统和用法：mount, df 和 du<a class="headerlink" href="#mount-df-du" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chapter3.html" class="btn btn-neutral float-right" title="3.2. 分析和管理系统日志文件" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="part2.html" class="btn btn-neutral" title="3. 系统监视" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; 版权所有 2015, SUSE LLC  及贡献者.
+      最后更新于 Jun 03, 2017.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
