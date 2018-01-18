@@ -12,14 +12,14 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
-import os
-import shlex
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+#
+import os
+import sys
+# sys.path.insert(0, os.path.abspath('.'))
+
 
 # -- General configuration ------------------------------------------------
 
@@ -29,15 +29,20 @@ import shlex
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'sphinx.ext.mathjax',
+extensions = ['sphinx.ext.mathjax',
+    'sphinx.ext.githubpages',
+    'sphinx.ext.graphviz'
 ]
+
+extensions += ['sphinx.ext.autodoc']
+extensions += ['sphinxcontrib.plantuml']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
+#
 # source_suffix = ['.rst', '.md']
 source_suffix = '.rst'
 
@@ -68,39 +73,13 @@ release = '0.9'
 # Usually you set "language" from the command line for these cases.
 language = 'zh_CN'
 
-# There are two options for replacing |today|: either, you set today to some
-# non-false value, then it is used:
-#today = ''
-# Else, today_fmt is used as the format for a strftime call.
-#today_fmt = '%B %d, %Y'
-
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
+# This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = []
-
-# The reST default role (used for this markup: `text`) to use for all
-# documents.
-#default_role = None
-
-# If true, '()' will be appended to :func: etc. cross-reference text.
-#add_function_parentheses = True
-
-# If true, the current module name will be prepended to all description
-# unit titles (such as .. function::).
-#add_module_names = True
-
-# If true, sectionauthor and moduleauthor directives will be shown in the
-# output. They are ignored by default.
-#show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
-# A list of ignored prefixes for module index sorting.
-#modindex_common_prefix = []
-
-# If true, keep warnings as "system message" paragraphs in the built documents.
-#keep_warnings = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
@@ -208,17 +187,31 @@ html_sidebars = {
 htmlhelp_basename = 'TsingBrickdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
-
+latex_engine = "xelatex"
 latex_elements = {
-'papersize' : 'a4paper',
-'utf8extra' : '',
-'inputenc'  : '',
-'babel'     : r'''\usepackage[english]{babel}''',
-'preamble' : r'''
-\usepackage{xeCJK}
-\setCJKmainfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
-''',
+    # The paper size ('letterpaper' or 'a4paper').
+    #
+    # 'papersize': 'letterpaper',
+    'papersize' : 'a4paper',
+
+    # The font size ('10pt', '11pt' or '12pt').
+    #
+    # 'pointsize': '10pt',
+    'pointsize' : '10pt',
+
+    # Additional stuff for the LaTeX preamble.
+    #
+    # 'preamble': '',
+    'preamble' : r'''
+    \usepackage{xeCJK}
+    \setCJKmainfont{Noto Sans CJK SC}
+    \setCJKmonofont{Noto Sans Mono CJK SC}
+    ''',
+
+    # Latex figure (float) alignment
+    #
+    # 'figure_align': 'htbp',
+    'classoptions': ',openany,oneside',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -285,3 +278,16 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+# 设置 graphviz_dot 路径
+graphviz_dot = 'dot'
+# 设置 graphviz_dot_args 的参数，这里默认了默认字体
+graphviz_dot_args = ['-Gfontname=Georgia', 
+                     '-Nfontname=Georgia',
+                     '-Efontname=Georgia']
+# 输出格式，默认png，这里我用svg矢量图
+graphviz_output_format = 'svg'
+
+# -- Options for plantuml output -------------------------------------------
+plantpath = os.path.dirname(os.path.realpath(__file__)) + "/../util/plantuml/"
+plantuml = 'java -jar ' + plantpath + "plantuml.jar"
