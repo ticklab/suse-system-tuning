@@ -204,7 +204,7 @@ latex_elements = {
     # 'preamble': '',
     'preamble' : r'''
     \usepackage{xeCJK}
-    \setCJKmainfont{Noto Sans CJK SC}
+    \setCJKmainfont{Noto Serif SC}
     \setCJKmonofont{Noto Sans Mono CJK SC}
     ''',
 
@@ -218,8 +218,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'TsingBrick.tex', u'openSUSE 系统分析和优化指南',
-   u'SUSE LLC  及贡献者', 'manual'),
+  (master_doc, 'TsingBrick.tex', 'openSUSE 系统分析和优化指南',
+   'SUSE LLC  及贡献者', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -262,7 +262,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'TsingBrick', u'openSUSE 系统分析和优化指南',
+  (master_doc, 'TsingBrick', 'openSUSE 系统分析和优化指南',
    author, 'TsingBrick', 'One line description of project.',
    'Miscellaneous'),
 ]
