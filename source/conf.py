@@ -35,7 +35,7 @@ extensions = ['sphinx.ext.mathjax',
 ]
 
 extensions += ['sphinx.ext.autodoc']
-extensions += ['sphinxcontrib.plantuml']
+#extensions += ['sphinxcontrib.plantuml']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
